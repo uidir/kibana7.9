@@ -1,0 +1,7 @@
+{
+  "extends": "../../kibana/tsconfig.json",
+  "include": [
+    "server/**/*",
+    "public/**/*"
+  ]
+}

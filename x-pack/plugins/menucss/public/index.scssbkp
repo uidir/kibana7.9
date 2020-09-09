@@ -1,0 +1,2 @@
+.loginWelcome::before {display:none;}
+.loginWelcome::after {display:none;}

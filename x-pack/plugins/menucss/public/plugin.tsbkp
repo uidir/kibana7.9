@@ -1,0 +1,107 @@
+import { i18n } from '@kbn/i18n';
+import { AppMountParameters, CoreSetup, CoreStart, Plugin } from '../../../src/core/public';
+import { MenucssPluginSetup, MenucssPluginStart, AppPluginStartDependencies } from './types';
+import { PLUGIN_NAME } from '../common';
+import { URL1 } from '../common';
+
+export class MenucssPlugin implements Plugin<MenucssPluginSetup, MenucssPluginStart> {
+  public setup(core: CoreSetup): MenucssPluginSetup {
+    // Register an application into the side navigation menu
+    core.application.register({
+      id: 'menucss',
+      euiIconType: 'monitoringApp',
+      title: 'Lucre RSOI',
+      async mount(params: AppMountParameters) {
+        // Load application bundle
+        const { renderApp } = await import('./application');
+        // Get start services as specified in kibana.json
+        const [coreStart, depsStart] = await core.getStartServices();
+        // Render the application
+        return renderApp(coreStart, depsStart as AppPluginStartDependencies, params);
+      },
+    });
+    core.application.register({
+      id: 'menucss2',
+      euiIconType: 'monitoringApp',
+      title: 'Onboarding',
+      async mount(params: AppMountParameters) {
+        // Load application bundle
+        const { renderApp } = await import('./application');
+        // Get start services as specified in kibana.json
+        const [coreStart, depsStart] = await core.getStartServices();
+        // Render the application
+        return (alert('hello'));
+      },
+    });
+    core.application.register({
+      id: 'menucss3',
+      euiIconType: 'monitoringApp',
+      title: 'High Risk Account',
+      async mount(params: AppMountParameters) {
+        // Load application bundle
+        const { renderApp } = await import('./application');
+        // Get start services as specified in kibana.json
+        const [coreStart, depsStart] = await core.getStartServices();
+        // Render the application
+        return (window.location.href='/cie/app/kibana#/dashboard/9a0099b0-ddd3-11ea-a6e3-0538e635b0fa');
+      },
+    });
+    core.application.register({
+      id: 'menucss4',
+      euiIconType: 'monitoringApp',
+      title: 'Alert Management',
+      async mount(params: AppMountParameters) {
+        // Load application bundle
+        const { renderApp } = await import('./application');
+        // Get start services as specified in kibana.json
+        const [coreStart, depsStart] = await core.getStartServices();
+        // Render the application
+        return (alert('hello'));
+      },
+    });
+    core.application.register({
+      id: 'menucss5',
+      euiIconType: 'monitoringApp',
+      title: 'Bank Exam Prep',
+      async mount(params: AppMountParameters) {
+        // Load application bundle
+        const { renderApp } = await import('./application');
+        // Get start services as specified in kibana.json
+        const [coreStart, depsStart] = await core.getStartServices();
+        // Render the application
+        return (alert('hello'));
+      },
+    });
+    core.application.register({
+      id: 'menucss6',
+      euiIconType: 'monitoringApp',
+      title: 'BPM Dashboard',
+      async mount(params: AppMountParameters) {
+        // Load application bundle
+        const { renderApp } = await import('./application');
+        // Get start services as specified in kibana.json
+        const [coreStart, depsStart] = await core.getStartServices();
+        // Render the application
+        return (window.location.href='/cie/app/kibana#/dashboard/'+URL1);
+      },
+    });
+
+    // Return methods that should be available to other plugins
+    return {
+      getGreeting() {
+        return i18n.translate('menucss.greetingText', {
+          defaultMessage: 'Hello from {name}!',
+          values: {
+            name: PLUGIN_NAME,
+          },
+        });
+      },
+    };
+  }
+
+  public start(core: CoreStart): MenucssPluginStart {
+    return {};
+  }
+
+  public stop() {}
+}

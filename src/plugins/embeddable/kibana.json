@@ -1,0 +1,15 @@
+{
+  "id": "embeddable",
+  "version": "kibana",
+  "server": false,
+  "ui": true,
+  "requiredPlugins": [
+    "data",
+    "inspector",
+    "uiActions"
+  ],
+  "requiredBundles": [
+    "savedObjects",
+    "kibanaReact"
+  ]
+}

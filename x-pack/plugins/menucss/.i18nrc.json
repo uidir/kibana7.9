@@ -1,0 +1,10 @@
+{
+    "prefix": "menucss",
+    "paths": {
+      "menucss": "."
+    },
+    "translations": [
+      "translations/ja-JP.json"
+    ]
+  }
+  
